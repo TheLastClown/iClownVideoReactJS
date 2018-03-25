@@ -1,7 +1,7 @@
 /**
  * 
  */
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import propTypes from 'prop-types';
 
 //===================================//
@@ -9,7 +9,13 @@ import './media.css';
 
 //===================================//
 
-export default class Media extends Component{
+export default class Media extends PureComponent{
+
+
+    handleClick = (event) => {
+        console.log(event);
+    }
+
     render(){
         const styles = {
             container:{
@@ -21,17 +27,17 @@ export default class Media extends Component{
             }
         }
         return(
-            <div className="Media"> 
+            <div className="Media" onClick={this.handleClick}> 
                 <div className="Media-cover">
                     <img 
-                        src="./images/covers/bitcoin.jpg" 
+                        src={this.props.cover} 
                         alt=""
                         width={260}
                         height={160}
                         className="Media-image"
                     />
-                    <h3 className="Media-title">Hola Juan, estudia!!!</h3>
-                    <p className="Media-author">iClown</p>
+                    <h3 className="Media-title">{this.props.title}</h3>
+                    <p className="Media-author">{this.props.author}</p>
                 </div>
             </div>
         );
@@ -41,7 +47,7 @@ export default class Media extends Component{
 //===================================//
 
 Media.propTypes = {
-    image: PropTypes.string,
-    title: PropTypes.string,
-    author: PropTypes.string,
+    cover: propTypes.string,
+    title: propTypes.string,
+    author: propTypes.string,
 }
