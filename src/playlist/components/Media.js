@@ -27,7 +27,7 @@ export default class Media extends PureComponent{
             }
         }
         return(
-            <div className="Media" onClick={this.handleClick}> 
+            <div className="Media" onClick={this.props.handleClick}> 
                 <div className="Media-cover">
                     <img 
                         src={this.props.cover} 

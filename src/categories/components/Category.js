@@ -8,6 +8,7 @@ export default function(props){
             <p className="Category-description">{props.description}</p>
             <h1 className="Category-title">{props.title}</h1>
             <Playlist 
+                handleClick = {props.handleClick}
                 playlist={props.playlist}
             />
         </div>
